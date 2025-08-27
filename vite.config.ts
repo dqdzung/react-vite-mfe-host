@@ -12,10 +12,8 @@ export default defineConfig(({ mode }) => {
 			federation({
 				name: "host",
 				remotes: {
-					mfe1:
-						env.VITE_MFE1_URL || "http://localhost:3001/assets/remoteEntry.js",
-					mfe2:
-						env.VITE_MFE2_URL || "http://localhost:3002/assets/remoteEntry.js",
+					mfe1: env.VITE_MFE1_URL,
+					mfe2: env.VITE_MFE2_URL,
 				},
 				shared: ["react", "react-dom", "zustand", "tailwindcss"],
 				exposes: {
