@@ -1,0 +1,36 @@
+{
+	"name": "host",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite --mode dev --port 3000 --strictPort",
+		"dev:fed": "vite build && vite preview --port 3000 --strictPort",
+		"dev:all": "concurrently \"yarn dev:fed\" \"yarn --cwd ../mfe1 dev:fed\" \"yarn --cwd ../mfe2 dev:fed\"",
+		"build": "tsc && vite build",
+		"preview": "vite preview --port 3000 --strictPort"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.12",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1",
+		"tailwindcss": "^4.1.12",
+		"zustand": "^5.0.8"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.33.0",
+		"@originjs/vite-plugin-federation": "^1.4.1",
+		"@types/react": "^19.1.10",
+		"@types/react-dom": "^19.1.7",
+		"@vitejs/plugin-react": "^5.0.0",
+		"concurrently": "^9.2.1",
+		"eslint": "^9.33.0",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.20",
+		"globals": "^16.3.0",
+		"typescript": "~5.8.3",
+		"typescript-eslint": "^8.39.1",
+		"vite": "^7.1.2"
+	}
+}
+
