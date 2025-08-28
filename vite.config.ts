@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 import tailwindcss from "@tailwindcss/vite";
+import path from "path";
 
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, "./src/environments");
@@ -12,12 +13,15 @@ export default defineConfig(({ mode }) => {
 			federation({
 				name: "host",
 				remotes: {
-					mfe1: env.VITE_MFE1_URL,
-					mfe2: env.VITE_MFE2_URL,
+					mfe1:
+						env.VITE_MFE1_URL || "http://localhost:3001/assets/remoteEntry.js",
+					mfe2:
+						env.VITE_MFE2_URL || "http://localhost:3002/assets/remoteEntry.js",
 				},
 				shared: ["react", "react-dom", "zustand", "tailwindcss"],
 				exposes: {
 					"./store": "./src/store",
+					"./ui": "./src/components/ui",
 				},
 			}),
 		],
@@ -37,6 +41,11 @@ export default defineConfig(({ mode }) => {
 			cors: true,
 		},
 		envDir: "./src/environments",
+		resolve: {
+			alias: {
+				"@": path.resolve(__dirname, "./src"),
+			},
+		},
 	};
 });
 
