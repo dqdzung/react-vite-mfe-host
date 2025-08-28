@@ -61,19 +61,21 @@ const App: React.FC = () => {
 				</div>
 			</section>
 
-			<Suspense
+			{/* <Suspense
 				fallback={
 					<div className="flex justify-center flex-1 my-10">
 						<Spinner className="text-white" size={30} />
 					</div>
 				}
 			>
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
-					<MicroFrontendTwo />
+				<section className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
 					<MicroFrontendOne />
-				</div>
-			</Suspense>
-			{/* <Suspense
+					<MicroFrontendTwo />
+				</section>
+			</Suspense> */}
+
+			<section className="flex sm:flex-row flex-col gap-5 my-10">
+				<Suspense
 					fallback={
 						<div className="flex justify-center flex-1">
 							<Spinner className="text-white" size={30} />
@@ -81,7 +83,7 @@ const App: React.FC = () => {
 					}
 				>
 					<MicroFrontendOne />
-				</Suspense>	
+				</Suspense>
 
 				<Suspense
 					fallback={
@@ -91,7 +93,8 @@ const App: React.FC = () => {
 					}
 				>
 					<MicroFrontendTwo />
-				</Suspense> */}
+				</Suspense>
+			</section>
 
 			<section className="grid grid-cols-1 gap-5 mt-5 border-2 border-dotted border-white p-3 text-background">
 				<h1 className="text-xl font-bold">Zustand persist</h1>
