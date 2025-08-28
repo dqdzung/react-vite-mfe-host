@@ -61,27 +61,37 @@ const App: React.FC = () => {
 				</div>
 			</section>
 
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
-				<Suspense
+			<Suspense
+				fallback={
+					<div className="flex justify-center flex-1 my-10">
+						<Spinner className="text-white" size={30} />
+					</div>
+				}
+			>
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+					<MicroFrontendTwo />
+					<MicroFrontendOne />
+				</div>
+			</Suspense>
+			{/* <Suspense
 					fallback={
-						<div className="flex justify-center">
+						<div className="flex justify-center flex-1">
 							<Spinner className="text-white" size={30} />
 						</div>
 					}
 				>
 					<MicroFrontendOne />
-				</Suspense>
+				</Suspense>	
 
 				<Suspense
 					fallback={
-						<div className="flex justify-center">
+						<div className="flex justify-center flex-1">
 							<Spinner className="text-white" size={30} />
 						</div>
 					}
 				>
 					<MicroFrontendTwo />
-				</Suspense>
-			</div>
+				</Suspense> */}
 
 			<section className="grid grid-cols-1 gap-5 mt-5 border-2 border-dotted border-white p-3 text-background">
 				<h1 className="text-xl font-bold">Zustand persist</h1>
